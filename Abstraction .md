@@ -29,27 +29,39 @@ To create an **abstract class** named `Shape` with an **abstract method** `calcu
 ---
 
 ## 💻 Program
-```py
-from abc import ABC 
-class Shape(ABC):
-   def calculate_area(self): 
-      Pass 
-class Rectangle(Shape): 
-   length = 5 
-   breadth =3 
-def calculate_area(self): 
-   print("Area of a rectangle:",self.length * self.breadth) class 
-Circle(Shape): 
-   radius = 4
-def calculate_area(self): 
-   print("Area of a circle:",3.14 * self.radius * self.radius) 
-a=Rectangle() 
-b=Circle() 
-a.calculate_area() 
-b.calculate_area()
-```
+      from abc import ABC, abstractmethod
+      import math
+      
+      class Shape(ABC):
+          @abstractmethod
+          def calculate_area(self):
+              pass
+      
+      
+      class Rectangle(Shape):
+          def __init__(self, length=1, breadth=1):
+              self.length = length
+              self.breadth = breadth
+      
+          def calculate_area(self):
+              return self.length * self.breadth
+      
+      class Circle(Shape):
+          def __init__(self, radius=1):
+              self.radius = radius
+      
+          def calculate_area(self):
+              return math.pi * self.radius ** 2
+      
+      
+      rect = Rectangle(length=4, breadth=5)
+      circle = Circle(radius=3)
+      
+      print("Rectangle Area:", rect.calculate_area())
+      print("Circle Area:", circle.calculate_area())
+
 ## Output
-![image](https://github.com/user-attachments/assets/a424c9e0-e0cd-4485-8004-a70558b8177a)
+![Screenshot 2025-05-20 052023](https://github.com/user-attachments/assets/80c2464e-6d84-4179-995f-6efb0ad1e907)
 
 ## Result
-Thus, the program has been successfully executed. 
+ Thus, the program is verified successfully.
